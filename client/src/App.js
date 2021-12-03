@@ -1,27 +1,37 @@
+// Essential imports
 import React from "react";
-
-// We use Route in order to define the different routes of our application
 import { Route } from "react-router-dom";
 
-// We import all the components we need in our app
-import Navbar from "./components/oldnavbar";
-import Edit from "./components/edit";
-import Create from "./components/create";
-import RecordList from "./components/recordList";
+// Components
+import Navbar from "./components/navbar";
+import Home from "./components/home";
+import Cal from "./components/cal";
+import Container from "./components/container";
 
-const App = () => {
+function App() {
   return (
     <div>
       <Navbar />
       <Route exact path="/">
-        <RecordList />
+        <Home />
       </Route>
-      <Route path="/edit/:id" component={Edit} />
-      <Route path="/create">
-        <Create />
+      <Route path="/about">
+        <Container type="about" />
+      </Route>
+      <Route path="/contact">
+        <Container type="contact" />
+      </Route>
+      <Route path="/contribute">
+        <Container type="contribute" />
+      </Route>
+      <Route path="/resources">
+        <Container type="resources" />
+      </Route>
+      <Route path="/calendar">
+        <Cal />
       </Route>
     </div>
   );
-};
+}
 
 export default App;

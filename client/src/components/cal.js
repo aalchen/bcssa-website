@@ -1,5 +1,6 @@
 import React from "react";
 import Calendar from "@ericz1803/react-google-calendar";
+import BorderRadius from "autoprefixer/lib/hacks/border-radius";
 
 const API_KEY = "API";
 let calendars = [
@@ -17,6 +18,8 @@ let calendars = [
 let styles = {
   calendar: {
     padding: "10px",
+    background: "white",
+    BorderRadius: "5px",
   },
 };
 
