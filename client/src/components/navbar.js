@@ -1,10 +1,7 @@
+// Essential imports
 import React from "react";
 import "tachyons";
 
-// We import NavLink to utilize the react router.
-import { NavLink } from "react-router-dom";
-
-// Here, we display our Navbar
 const Navbar = () => {
   return (
     <div>
@@ -37,13 +34,13 @@ const Navbar = () => {
           >
             Contribute!
           </a>
-          {/* <a
+          <a
             class="link dim gray f6 f5-ns dib mr3"
-            href="/connect"
+            href="/resources"
             title="Store"
           >
-            Connect
-          </a> */}
+            Resources
+          </a>
           <a class="link dim gray f6 f5-ns dib" href="/contact" title="Contact">
             Contact
           </a>
