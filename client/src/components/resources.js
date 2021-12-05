@@ -1,5 +1,6 @@
 // Essential imports
 import React from "react";
+import ResourceList from "./resourceList";
 
 const Resources = () => {
   return (
@@ -10,8 +11,16 @@ const Resources = () => {
       >
         <div class="pa5">
           <p class="f3 fw6">Resources</p>
-          <p class="f4">Insert resources here</p>
-          <p class="f4">Add your resource below!</p>
+          <p class="f4">
+            <a
+              class="link dim gray f6 f5-ns dib mr3"
+              href="/create"
+              title="About"
+            >
+              Create
+            </a>
+          </p>
+          <ResourceList />
         </div>
       </p>
     </div>

@@ -5,14 +5,14 @@ import { Route } from "react-router-dom";
 import Navbar from "./components/og -oldnavbar";
 import Edit from "./components/edit";
 import Create from "./components/og -create";
-import RecordList from "./components/recordList";
+import ResourceList from "./components/resourcelist";
 
 const ogApp = () => {
   return (
     <div>
       <Navbar />
       <Route exact path="/">
-        <RecordList />
+        <ResourceList />
       </Route>
       <Route path="/edit/:id" component={Edit} />
       <Route path="/create">

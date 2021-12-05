@@ -8,6 +8,9 @@ import Home from "./components/home";
 import Cal from "./components/cal";
 import Container from "./components/container";
 
+import Create from "./components/create";
+import Edit from "./components/edit";
+
 function App() {
   return (
     <div>
@@ -30,6 +33,10 @@ function App() {
       <Route path="/calendar">
         <Cal />
       </Route>
+      <Route path="/create">
+        <Create />
+      </Route>
+      <Route path="/edit/:id" component={Edit} />
     </div>
   );
 }

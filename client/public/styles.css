@@ -1,5 +1,5 @@
 body, html {
-    background-color: rgb(0, 68, 255);
-    background-image: radial-gradient(rgb(184, 201, 248), rgb(240, 232, 220));
+    background-color: rgb(184, 201, 248);
+    background-image: radial-gradient(rgb(240, 232, 220), rgb(184, 201, 248));
     height: 100%;
 }

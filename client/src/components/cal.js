@@ -1,16 +1,17 @@
 import React from "react";
 import Calendar from "@ericz1803/react-google-calendar";
 import BorderRadius from "autoprefixer/lib/hacks/border-radius";
+import { css } from "@emotion/react";
 
 const API_KEY = "API";
 let calendars = [
-  { calendarId: "ID1" },
+  { calendarId: "ubc.bcsclub@gmail.com" },
   {
-    calendarId: "ID2",
+    calendarId: "ID",
     color: "#B241D1", //optional, specify color of calendar 2 events
   },
   {
-    calendarId: "ID3",
+    calendarId: "ID",
     color: "#7BC17E", //optional, specify color of calendar 2 events
   },
 ];
@@ -21,6 +22,12 @@ let styles = {
     background: "white",
     BorderRadius: "5px",
   },
+
+  //you can also use emotion's string styles (remember to add the line 'import { css } from "@emotion/react";')
+  today: css`
+    color: red;
+    border: 2px solid red;
+  `,
 };
 
 const Cal = () => {

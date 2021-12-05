@@ -8,27 +8,29 @@ class Edit extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangePersonName = this.onChangePersonName.bind(this);
-    this.onChangePersonPosition = this.onChangePersonPosition.bind(this);
-    this.onChangePersonLevel = this.onChangePersonLevel.bind(this);
+    this.onChangeCourseCode = this.onChangeCourseCode.bind(this);
+    this.onChangeCourseNum = this.onChangeCourseNum.bind(this);
+    this.onChangeLink = this.onChangeLink.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      person_name: "",
-      person_position: "",
-      person_level: "",
+      course_code: "",
+      course_number: "",
+      resource_link: "",
+      comments: "",
       records: [],
     };
   }
   // This will get the record based on the id from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:3000/record/" + this.props.match.params.id)
+      .get("http://localhost:4000/record/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
-          person_name: response.data.person_name,
-          person_position: response.data.person_position,
-          person_level: response.data.person_level,
+          course_code: response.data.course_code,
+          course_number: response.data.course_number,
+          resource_link: response.data.resource_link,
+          comments: response.data.comments,
         });
       })
       .catch(function (error) {
@@ -37,39 +39,46 @@ class Edit extends Component {
   }
 
   // These methods will update the state properties.
-  onChangePersonName(e) {
+  onChangeCourseCode(e) {
     this.setState({
-      person_name: e.target.value,
+      course_code: e.target.value,
     });
   }
 
-  onChangePersonPosition(e) {
+  onChangeCourseNum(e) {
     this.setState({
-      person_position: e.target.value,
+      course_number: e.target.value,
     });
   }
 
-  onChangePersonLevel(e) {
+  onChangeLink(e) {
     this.setState({
-      person_level: e.target.value,
+      resource_link: e.target.value,
+    });
+  }
+
+  onChangeComments(e) {
+    this.setState({
+      comments: e.target.value,
     });
   }
 
   // This function will handle the submission.
   onSubmit(e) {
     e.preventDefault();
-    const newEditedperson = {
-      person_name: this.state.person_name,
-      person_position: this.state.person_position,
-      person_level: this.state.person_level,
+    const newEditedResource = {
+      course_code: this.state.course_code,
+      course_number: this.state.course_number,
+      resource_link: this.state.resource_link,
+      comments: this.state.comments,
     };
-    console.log(newEditedperson);
+    console.log(newEditedResource);
 
     // This will send a post request to update the data in the database.
     axios
       .post(
-        "http://localhost:3000/update/" + this.props.match.params.id,
-        newEditedperson
+        "http://localhost:4000/update/" + this.props.match.params.id,
+        newEditedResource
       )
       .then((res) => console.log(res.data));
 
@@ -83,60 +92,40 @@ class Edit extends Component {
         <h3 align="center">Update Record</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Person's Name: </label>
+            <label>Course Code: </label>
             <input
               type="text"
               className="form-control"
-              value={this.state.person_name}
-              onChange={this.onChangePersonName}
+              value={this.state.course_code}
+              onChange={this.onChangeCourseCode}
             />
           </div>
           <div className="form-group">
-            <label>Position: </label>
+            <label>Course Num: </label>
             <input
               type="text"
               className="form-control"
-              value={this.state.person_position}
-              onChange={this.onChangePersonPosition}
+              value={this.state.course_number}
+              onChange={this.onChangeCourseNum}
             />
           </div>
           <div className="form-group">
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="priorityOptions"
-                id="priorityLow"
-                value="Intern"
-                checked={this.state.person_level === "Intern"}
-                onChange={this.onChangePersonLevel}
-              />
-              <label className="form-check-label">Intern</label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="priorityOptions"
-                id="priorityMedium"
-                value="Junior"
-                checked={this.state.person_level === "Junior"}
-                onChange={this.onChangePersonLevel}
-              />
-              <label className="form-check-label">Junior</label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="priorityOptions"
-                id="priorityHigh"
-                value="Senior"
-                checked={this.state.person_level === "Senior"}
-                onChange={this.onChangePersonLevel}
-              />
-              <label className="form-check-label">Senior</label>
-            </div>
+            <label>Link: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.resource_link}
+              onChange={this.onChangeLink}
+            />
+          </div>
+          <div className="form-group">
+            <label>Comments: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.comments}
+              onChange={this.onChangeComments}
+            />
           </div>
           <br />
 
