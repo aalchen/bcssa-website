@@ -23,21 +23,21 @@ const Navbar = () => {
           <a
             class="link dim gray f6 f5-ns dib mr3"
             href="/calendar"
-            title="Store"
+            title="Calendar"
           >
             Calendar
           </a>
           <a
             class="link dim gray f6 f5-ns dib mr3"
             href="/contribute"
-            title="Store"
+            title="Contribute"
           >
             Contribute!
           </a>
           <a
             class="link dim gray f6 f5-ns dib mr3"
             href="/resources"
-            title="Store"
+            title="Resources"
           >
             Resources
           </a>

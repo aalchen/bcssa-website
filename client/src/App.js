@@ -10,6 +10,7 @@ import Container from "./components/container";
 
 import Create from "./components/create";
 import Edit from "./components/edit";
+import ResourcesItems from "./components/resourcesItems";
 
 function App() {
   return (
@@ -34,7 +35,10 @@ function App() {
         <Cal />
       </Route>
       <Route path="/create">
-        <Create />
+        <ResourcesItems type="create" />
+      </Route>
+      <Route path="/list">
+        <ResourcesItems type="list" />
       </Route>
       <Route path="/edit/:id" component={Edit} />
     </div>

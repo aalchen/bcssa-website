@@ -1,8 +1,12 @@
 // Essential imports
-import React from "react";
+import React, { useState } from "react";
+import Edit from "./edit";
 import ResourceList from "./resourceList";
+import Create from "./create";
 
 const Resources = () => {
+  const [index, setIndex] = useState(0);
+  const components = [<ResourceList />, <Create />];
   return (
     <div>
       <p
@@ -12,15 +16,20 @@ const Resources = () => {
         <div class="pa5">
           <p class="f3 fw6">Resources</p>
           <p class="f4">
-            <a
-              class="link dim gray f6 f5-ns dib mr3"
-              href="/create"
-              title="About"
+            <button
+              class="ph3 f6 grow no-underline br-pill ba bw1 ph3 pv2 mb2 dib black"
+              onClick={() => setIndex(0)}
             >
-              Create
-            </a>
+              View List
+            </button>
+            <button
+              class="ph3 f6 grow no-underline br-pill ba bw1 ph3 pv2 mb2 dib black"
+              onClick={() => setIndex(1)}
+            >
+              Add a Resource
+            </button>
           </p>
-          <ResourceList />
+          {components[index]}
         </div>
       </p>
     </div>
