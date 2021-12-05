@@ -2,6 +2,9 @@ import React, { Component } from "react";
 // This will require to npm install axios
 import axios from "axios";
 import { withRouter } from "react-router";
+import ResourceList from "./resourceList";
+import Create from "./create";
+
 
 class Edit extends Component {
   // This is the constructor that stores the data.
@@ -11,6 +14,7 @@ class Edit extends Component {
     this.onChangeCourseCode = this.onChangeCourseCode.bind(this);
     this.onChangeCourseNum = this.onChangeCourseNum.bind(this);
     this.onChangeLink = this.onChangeLink.bind(this);
+    this.onChangeComments = this.onChangeComments.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -89,54 +93,76 @@ class Edit extends Component {
   render() {
     return (
       <div>
-        <h3 align="center">Update Record</h3>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <label>Course Code: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.course_code}
-              onChange={this.onChangeCourseCode}
-            />
-          </div>
-          <div className="form-group">
-            <label>Course Num: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.course_number}
-              onChange={this.onChangeCourseNum}
-            />
-          </div>
-          <div className="form-group">
-            <label>Link: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.resource_link}
-              onChange={this.onChangeLink}
-            />
-          </div>
-          <div className="form-group">
-            <label>Comments: </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.comments}
-              onChange={this.onChangeComments}
-            />
-          </div>
-          <br />
+        <p
+          class="f5 lh-copy center fw3"
+          style={{ width: "inherit", overflowY: "scroll", height: "425px" }}
+        >
+          <div class="pa5">
+            <p class="f3 fw6">Resources</p>
+            <p class="f4">
+            <a href="/resources">
+              <button
+                class="ph3 f6 grow no-underline br-pill ba bw1 ph3 pv2 mb2 dib black"
+              >
+                Return!
+              </button>
+              </a>
+            </p>
 
-          <div className="form-group">
-            <input
-              type="submit"
-              value="Update Record"
-              className="btn btn-primary"
-            />
-          </div>
-        </form>
+          
+      
+        <div>
+          <h3 align="center">Update Record</h3>
+          <form onSubmit={this.onSubmit}>
+            <div className="form-group">
+              <label>Course Code: </label>
+              <input
+                type="text"
+                className="form-control"
+                value={this.state.course_code}
+                onChange={this.onChangeCourseCode}
+              />
+            </div>
+            <div className="form-group">
+              <label>Course Num: </label>
+              <input
+                type="text"
+                className="form-control"
+                value={this.state.course_number}
+                onChange={this.onChangeCourseNum}
+              />
+            </div>
+            <div className="form-group">
+              <label>Link: </label>
+              <input
+                type="text"
+                className="form-control"
+                value={this.state.resource_link}
+                onChange={this.onChangeLink}
+              />
+            </div>
+            <div className="form-group">
+              <label>Comments: </label>
+              <input
+                type="text"
+                className="form-control"
+                value={this.state.comments}
+                onChange={this.onChangeComments}
+              />
+            </div>
+            <br />
+
+            <div className="form-group">
+              <input
+                type="submit"
+                value="Update Record"
+                className="btn btn-primary"
+              />
+            </div>
+          </form>
+        </div>
+        </div>
+        </p>
       </div>
     );
   }

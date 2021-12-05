@@ -40,7 +40,9 @@ function App() {
       <Route path="/list">
         <ResourcesItems type="list" />
       </Route>
-      <Route path="/edit/:id" component={Edit} />
+      <Route path="/edit/:id">
+        <ResourcesItems type="edit" />
+      </Route>
     </div>
   );
 }
