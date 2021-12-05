@@ -3,18 +3,19 @@ import Calendar from "@ericz1803/react-google-calendar";
 import BorderRadius from "autoprefixer/lib/hacks/border-radius";
 import { css } from "@emotion/react";
 
-const API_KEY = "API";
+const API_KEY = "AIzaSyCyu5AsHYYRT2DEiKbiHIfdNZxl0_BNyP0";
 let calendars = [
   { calendarId: "ubc.bcsclub@gmail.com" },
   {
-    calendarId: "ID",
+    calendarId: "m77u5u4bq0ve1ddcnlnaplea9c@group.calendar.google.com",
     color: "#B241D1", //optional, specify color of calendar 2 events
   },
   {
-    calendarId: "ID",
+    calendarId: "n3nsme1q3vvfo8oc90lavndigo@group.calendar.google.com",
     color: "#7BC17E", //optional, specify color of calendar 2 events
   },
 ];
+
 
 let styles = {
   calendar: {
